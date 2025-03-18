@@ -8,25 +8,25 @@ The project uses two datasets stored in a database schema called pp:
 1.	pp.coviddeaths – Contains COVID-19 cases, deaths, and population data for various countries and continents.
 2.	pp.covidvac – Stores vaccination records, including new vaccinations and fully vaccinated statistics.
 
- ## Key SQL Techniques Used
- Data Cleaning & Transformation
+ #Key SQL Techniques Used
+ ## Data Cleaning & Transformation
 •	Handling NULL values: Replacing empty strings with NULL in total_deaths, new_deaths, and new_vaccinations.
 •	Changing Data Types: Ensuring numerical columns are correctly formatted as INT or DECIMAL.
 •	Fixing Date Formats: Converting date from VARCHAR to proper DATETIME using STR_TO_DATE().
- Exploratory Data Analysis (EDA)
+ ## Exploratory Data Analysis (EDA)
 •	Checking total cases, deaths, and infections by location and date.
 •	Finding the highest infection rates relative to the population.
 •	Identifying continents with the most COVID-related deaths.
- Aggregations & Insights
+ ## Aggregations & Insights
 •	Global COVID Trends: Summarizing total cases, deaths, and death rates worldwide.
 •	Percentage of Population Infected: Calculating (total_cases / population) * 100.
 •	Death Rate Analysis: Comparing deaths to total cases in Africa.
 •	Highest Death Counts by Country & Continent: Using GROUP BY and MAX() functions.
- Vaccination Analysis
+ ## Vaccination Analysis
 •	Rolling Sum of Vaccinations: Using a window function (SUM() OVER()) to track cumulative vaccinations over time.
 •	Total Population Vaccinated: Calculating (rollingpeoplevaccinated / population) * 100 to determine vaccination rates.
 •	Comparing Vaccinations by Country & Continent.
- SQL Optimization
+ ## SQL Optimization
 •	Using CTEs (WITH statement) for better readability and reusability.
 •	Creating Views for Visualization: percentpopulationvaccinated, rollingpeoplevaccinated.
 •	Temporary Tables for efficient data processing.

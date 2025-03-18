@@ -32,14 +32,14 @@ The project uses two datasets stored in a database schema called pp:
 •	Temporary Tables for efficient data processing.
 
 ## Key SQL Queries
-1.	Infection & Death Rate Analysis 
+## 1.	Infection & Death Rate Analysis 
 sql
 SELECT location, date, total_cases, total_deaths, 
        (total_deaths / total_cases) * 100 AS death_rate
 FROM pp.coviddeaths
 WHERE location LIKE '%Africa%'
 ORDER BY location, date;
-2.	Highest Infection Rate by Country 
+## 2.	Highest Infection Rate by Country 
 sql
 SELECT location, MAX(total_cases) AS highest_cases, 
        MAX((total_cases / population) * 100) AS infection_rate
@@ -47,14 +47,14 @@ FROM pp.coviddeaths
 WHERE continent IS NOT NULL
 GROUP BY location
 ORDER BY infection_rate DESC;
-3.	Total Global Cases & Deaths 
+## 3.	Total Global Cases & Deaths 
 sql
 SELECT SUM(new_cases) AS total_cases, 
        SUM(new_deaths) AS total_deaths, 
        (SUM(new_deaths) / SUM(new_cases)) * 100 AS global_death_rate
 FROM pp.coviddeaths
 WHERE continent IS NOT NULL;
-4.	Rolling Vaccination Count by Country 
+## 4.	Rolling Vaccination Count by Country 
 sql
 SELECT dea.location, dea.date, dea.population, vac.new_vaccinations, 
        SUM(CAST(vac.new_vaccinations AS UNSIGNED)) 
@@ -65,14 +65,14 @@ JOIN pp.covidvac AS vac
 
  ## Insights & Findings
 1.	Infection Trends
-o	Some countries had infection rates exceeding 50% of the population.
-o	Africa had lower cases relative to its population compared to Europe and the Americas.
+	Some countries had infection rates exceeding 50% of the population.
+	Africa had lower cases relative to its population compared to Europe and the Americas.
 2.	Death Rate Patterns
-o	Countries with older populations showed higher death rates.
-o	The global COVID death rate fluctuated but stayed below 5% on average.
+	Countries with older populations showed higher death rates.
+	The global COVID death rate fluctuated but stayed below 5% on average.
 3.	Vaccination Progress
-o	Some countries reached over 80% full vaccination.
-o	The rate of vaccinations slowed down in certain regions after an initial surge.
+	Some countries reached over 80% full vaccination.
+	The rate of vaccinations slowed down in certain regions after an initial surge.
 
  ## How to Use This Project
 •	Run SQL Queries in MySQL Workbench to extract insights.

@@ -63,7 +63,7 @@ FROM pp.coviddeaths AS dea
 JOIN pp.covidvac AS vac 
     ON dea.location = vac.location AND dea.date = vac.date;
 
- Insights & Findings
+ ## Insights & Findings
 1.	Infection Trends
 o	Some countries had infection rates exceeding 50% of the population.
 o	Africa had lower cases relative to its population compared to Europe and the Americas.
@@ -74,15 +74,11 @@ o	The global COVID death rate fluctuated but stayed below 5% on average.
 o	Some countries reached over 80% full vaccination.
 o	The rate of vaccinations slowed down in certain regions after an initial surge.
 
- How to Use This Project
+ ## How to Use This Project
 •	Run SQL Queries in MySQL Workbench to extract insights.
 •	Use Views (percentpopulationvaccinated) for visualization in tools like Power BI or Tableau.
 •	Modify Filters (WHERE location = 'ABC') to focus on specific countries or continents.
 
- Potential Improvements
-•	Add stored procedures for automated report generation.
-•	Integrate with Power BI or Tableau for interactive dashboards.
-•	Perform sentiment analysis on public reactions using scraped social media data.
-
- Conclusion
+ 
+ ## Conclusion
 This project provides a comprehensive SQL-based analysis of COVID-19 trends, including infections, deaths, and vaccinations. It uses real-world data and advanced SQL techniques to generate meaningful insights that can aid decision-making and policy evaluations.
